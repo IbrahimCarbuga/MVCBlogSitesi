@@ -1,0 +1,30 @@
+﻿@model IbrahimCarbugaBlog.Models.UserModel
+<div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Kayıt ol</h4>
+        </div>
+        <div class="modal-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.EditorFor(model => model.KullaniciAdi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Sifre, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                <input type="checkbox" name="rememberMe" />
+                <p style="float:left;margin-right:1%">Beni Hatırla</p>
+                <br />
+                <input type="submit" value="Giriş Yap" class="btn btn-default" />
+                <b style="color:rebeccapurple">@TempData["errorMessage"]</b>
+            }
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+
+

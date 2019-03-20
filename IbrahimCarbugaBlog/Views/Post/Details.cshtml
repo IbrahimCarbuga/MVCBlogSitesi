@@ -1,0 +1,42 @@
+﻿@model IbrahimCarbugaBlog.Models.PostModel
+<div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Yazının İçeriği</h4>
+        </div>
+        <div class="modal-body">
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Baslik)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Baslik)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Icerik)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Icerik)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Kategori)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Kategori)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>

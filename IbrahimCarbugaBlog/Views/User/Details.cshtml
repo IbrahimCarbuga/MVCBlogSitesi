@@ -1,0 +1,67 @@
+﻿@model IbrahimCarbugaBlog.Models.UserModel
+<div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Kullanıcı Bilgileri</h4>
+        </div>
+        <div class="modal-body">
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Ad)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Ad)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Soyad)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Soyad)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.KullaniciAdi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.KullaniciAdi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sifre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Sifre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DogumTarihi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DogumTarihi)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+        </div>
+    </div>
+
+</div>

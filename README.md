@@ -1,1 +1,1 @@
-# MVCBlogSitesi
+Yapýmý hala devam etmekte fakat CRUD iþlemleri,Cookie yönetimi,Encrypt ve Decrypt iþlemleri doðru þekilde çalýþmaktadýr.
