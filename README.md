@@ -1,1 +1,1 @@
-Yapýmý hala devam etmekte fakat CRUD iþlemleri,Cookie yönetimi,Encrypt ve Decrypt iþlemleri doðru þekilde çalýþmaktadýr.
+Yapimi hala devam etmekte fakat CRUD islemleri,Cookie yonetimi,Encrypt ve Decrypt islemleri dogru sekilde calismaktadir.
