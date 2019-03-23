@@ -13,6 +13,11 @@ namespace IbrahimCarbugaBlog.Models
         public string Baslik { get; set; }
         public string Icerik { get; set; }
         public string Kategori { get; set; }
+        public List<Yorum> Yorumlar { get; set; }
+        public PostModel()
+        {
+            Yorumlar = new List<Yorum>();
+        }
         public static List<PostModel> GetList()
         {
             List<PostModel> returnList = new List<PostModel>();
@@ -23,6 +28,7 @@ namespace IbrahimCarbugaBlog.Models
                 pm.Baslik = gonderi.Baslik;
                 pm.Icerik = gonderi.Icerik;               
                 pm.Kategori = gonderi.Kategori.KategoriAdi;
+                pm.Yorumlar = gonderi.Yorumlar;
                 returnList.Add(pm);
             }
             return returnList;

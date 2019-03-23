@@ -1,4 +1,7 @@
-﻿using System;
+﻿using IbrahimCarbugaBlog.Classes;
+using IbrahimCarbugaBlog.Entity;
+using IbrahimCarbugaBlog.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,33 +11,28 @@ namespace IbrahimCarbugaBlog.Controllers
 {
     public class KategoriController : Controller
     {
-        // GET: Kategori
-        public ActionResult Index()
+        [CustomAuthorize(isAdmin: true)]
+        public ActionResult List()
         {
-            return View();
+            return View(KategoriModel.GetList());
         }
 
-        // GET: Kategori/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Kategori/Create
+        [CustomAuthorize(isAdmin: true)]
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
-        // POST: Kategori/Create
+        [CustomAuthorize(isAdmin: true)]
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(KategoriModel km)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                Kategori kategori = new Kategori();
+                kategori.KategoriAdi = km.KategoriAdi;
+                DbFactory.KategoriCrud.Insert(kategori);
+                return RedirectToAction("List");
             }
             catch
             {
@@ -42,48 +40,36 @@ namespace IbrahimCarbugaBlog.Controllers
             }
         }
 
-        // GET: Kategori/Edit/5
-        public ActionResult Edit(int id)
+        [CustomAuthorize(isAdmin: true)]
+        public ActionResult Edit(string id)
         {
-            return View();
+            return PartialView(KategoriModel.GetList().FirstOrDefault(x=>x.KategoriId==id));
         }
 
-        // POST: Kategori/Edit/5
+        [CustomAuthorize(isAdmin: true)]
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, KategoriModel km)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                Kategori kategori = DbFactory.KategoriCrud.Find(id);                
+                kategori.KategoriAdi = km.KategoriAdi;
+                DbFactory.KategoriCrud.Update(id,kategori);
+                return RedirectToAction("List");
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                return View(ex);
             }
         }
 
-        // GET: Kategori/Delete/5
-        public ActionResult Delete(int id)
+        [CustomAuthorize(isAdmin: true)]
+        public ActionResult Delete(string id)
         {
-            return View();
+            DbFactory.KategoriCrud.Delete(id);
+            return RedirectToAction("List");
         }
 
-        // POST: Kategori/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
     }
 }

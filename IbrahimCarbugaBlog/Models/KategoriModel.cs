@@ -17,6 +17,7 @@ namespace IbrahimCarbugaBlog.Models
             foreach (Kategori kategori in DbFactory.KategoriCrud.Records)
             {
                 KategoriModel km = new KategoriModel();
+                km.KategoriId = kategori.ID;
                 km.KategoriAdi = kategori.KategoriAdi;
                 returnList.Add(km);
             }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using IbrahimCarbugaBlog.Classes;
+using IbrahimCarbugaBlog.Entity;
+using IbrahimCarbugaBlog.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,83 +10,25 @@ using System.Web.Mvc;
 namespace IbrahimCarbugaBlog.Controllers
 {
     public class YorumController : Controller
-    {
-        // GET: Yorum
-        public ActionResult Index()
+    {    
+        [CustomAuthorize(isAdmin:true)]
+        public ActionResult List()
         {
-            return View();
+            return View(YorumModel.GetList());
+        }
+        [CustomAuthorize(isAdmin: true)]
+        public ActionResult Details(string id)
+        {
+            return PartialView(YorumModel.GetList().FirstOrDefault(x=>x.YorumId==id));
         }
 
-        // GET: Yorum/Details/5
-        public ActionResult Details(int id)
+        [CustomAuthorize(isAdmin: true)]
+        public ActionResult Delete(string id)
         {
-            return View();
+            DbFactory.YorumCrud.Delete(id);
+            return RedirectToAction("List");
         }
 
-        // GET: Yorum/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Yorum/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Yorum/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Yorum/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Yorum/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Yorum/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
     }
 }

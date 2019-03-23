@@ -28,7 +28,7 @@ namespace IbrahimCarbugaBlog.Controllers
         [CustomAuthorize(isAdmin:true)]
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         
@@ -56,7 +56,7 @@ namespace IbrahimCarbugaBlog.Controllers
         [CustomAuthorize(isAdmin: true)]
         public ActionResult Edit(string id)
         {
-            return View(PostModel.GetList().FirstOrDefault(x=>x.ModelId==id));
+            return PartialView(PostModel.GetList().FirstOrDefault(x=>x.ModelId==id));
         }
 
         

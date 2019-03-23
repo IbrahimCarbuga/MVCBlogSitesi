@@ -23,6 +23,7 @@ namespace IbrahimCarbugaBlog.Controllers
             {
                 var encryptedId = OhmCryptor.OhmCryptor.Encrypt(userEntity.ID,UserFactory.SuperSecretKey);
                 HttpCookie cookie = new HttpCookie("userId", encryptedId);
+                Session["userId"] = userEntity.ID;
                 if (rememberMe == null)
                 {
                     cookie.Expires = DateTime.Now.AddHours(1);

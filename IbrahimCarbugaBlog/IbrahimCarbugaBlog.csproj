@@ -217,11 +217,16 @@
     <Content Include="Views\Post\List.cshtml" />
     <Content Include="Views\Post\Details.cshtml" />
     <Content Include="Views\Post\Edit.cshtml" />
+    <Content Include="Views\Home\TumPostlar.cshtml" />
+    <Content Include="Views\Home\PostOku.cshtml" />
+    <Content Include="Views\Kategori\List.cshtml" />
+    <Content Include="Views\Kategori\Create.cshtml" />
+    <Content Include="Views\Kategori\Edit.cshtml" />
+    <Content Include="Views\Yorum\List.cshtml" />
+    <Content Include="Views\Yorum\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Kategori\" />
-    <Folder Include="Views\Yorum\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

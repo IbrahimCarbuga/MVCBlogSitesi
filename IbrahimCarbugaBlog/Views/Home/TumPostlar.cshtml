@@ -1,0 +1,29 @@
+﻿@model IEnumerable<IbrahimCarbugaBlog.Models.PostModel>
+
+@{
+    ViewBag.Title = "TumPostlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="navbar-collapse collapse"  style="float:left;background-color:cornflowerblue">
+    <ul class="nav navbar-nav" >
+        <li>@Html.ActionLink("Tümü", "TumPostlar", new { })</li>
+        @foreach (var categoryNameItem in IbrahimCarbugaBlog.Classes.KategoriFactory.KategoriIsimleri())
+        {
+            <br />
+            <li> @Html.ActionLink(categoryNameItem, "TumPostlar", new { kategoriIsmi = categoryNameItem })</li>
+        }
+    </ul>
+</div>
+
+<ul style="float:left">
+    @foreach (var post in Model)
+    {
+        <li>
+            @post.Baslik
+            <br />
+            @Html.ActionLink("Okumak İçin Tıklayın", "PostOku", new { id = post.ModelId }, new { @class = "btn btn-info" })
+        </li>
+    }
+</ul>

@@ -1,4 +1,4 @@
-﻿@model IbrahimCarbugaBlog.Models.UserModel
+﻿@model IbrahimCarbugaBlog.Entity.User
 @if (Model != null) //Eğer giriş yapan bir kullanıcı var ise
 {
     @Html.ActionLink("Welcome " + Model.Ad, "Logout", "LoginRegister", new { style = "color:white" })

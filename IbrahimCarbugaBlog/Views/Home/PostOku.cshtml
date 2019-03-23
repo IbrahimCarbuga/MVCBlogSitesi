@@ -1,0 +1,58 @@
+﻿@model IbrahimCarbugaBlog.Models.PostModel
+
+@{
+    ViewBag.Title = "PostOku";
+}
+
+
+<h2>@Model.Baslik</h2>
+
+<p>
+    @Model.Icerik
+</p>
+
+<h2>Yorumlar</h2>
+<div class="row">
+    @if (Model.Yorumlar != null)
+    {
+        foreach (var item in Model.Yorumlar)
+        {
+            <div class="col-md-12 col-sm-12 col-xs-12" style="border: 1px solid black; margin-bottom:2%;">
+                <div name="header">
+                    <div style="float:left">
+                        <b>Yorumu Yapan: @item.User.KullaniciAdi</b>
+                    </div>
+                    <div style="float:right">
+                        @item.OlusturmaTarihi.ToShortDateString()
+                    </div>
+                </div>
+                <br />
+                <div>
+                    @item.YorumIcerigi
+                </div>
+            </div>
+        }
+    }
+
+</div>
+
+
+<hr />
+<!-- Yorum Yap -->
+<b>Yorum Ekle</b>
+@using (Html.BeginForm("YorumYap", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <textarea name="yorumIcerik" id="yorumIcerik" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
